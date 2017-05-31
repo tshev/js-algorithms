@@ -1,0 +1,24 @@
+{
+  "name": "js-algorithms",
+  "version": "1.0.0",
+  "description": "General-purpose algorithms",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tshev/js-algorithms.git"
+  },
+  "keywords": [
+    "binary",
+    "search",
+    "find_if"
+  ],
+  "author": "Taras",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tshev/js-algorithms/issues"
+  },
+  "homepage": "https://github.com/tshev/js-algorithms#readme"
+}
