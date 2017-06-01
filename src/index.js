@@ -79,9 +79,22 @@ function lowerBound(a, first, last, val, cmp) {
   return first;
 }
 
+function upperBound(a, first, last, val, cmp) {
+  while (first != last) {
+    const m = first + (last - first) / 2;
+    if (!cmp(a[m], val)) {
+      last = m;
+    } else {
+      first = m + 1;
+    }
+  }
+  return first;
+}
+
 module.exports = {
   lowerBound: lowerBound,
   reverse: reverse,
   rotate: rotate,
-  stablePartition: stablePartition
+  stablePartition: stablePartition,
+  upperBound: upperBound
 };
