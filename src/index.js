@@ -47,7 +47,7 @@ function lowerBoundMinified(a, val) {
   let first = a.first;
   let last = a.length;
   while (first != last) {
-    const m = first + (last - first) / 2;
+    const m = first + parseInt((last - first) / 2);
     if (a[m] < val) {
       first = m + 1;
     } else {
@@ -69,7 +69,7 @@ function stablePartition(a, first, last, p) {
 
 function lowerBound(a, first, last, val, cmp) {
   while (first != last) {
-    const m = first + (last - first) / 2;
+    const m = first + parseInt((last - first) / 2);
     if (cmp(a[m], val)) {
       first = m + 1;
     } else {
@@ -79,10 +79,11 @@ function lowerBound(a, first, last, val, cmp) {
   return first;
 }
 
+
 function upperBound(a, first, last, val, cmp) {
-  while (first != last) {
-    const m = first + (last - first) / 2;
-    if (!cmp(a[m], val)) {
+  while (first < last) {
+    const m = first + parseInt((last - first) / 2);
+    if (cmp(val, a[m])) {
       last = m;
     } else {
       first = m + 1;
@@ -90,6 +91,7 @@ function upperBound(a, first, last, val, cmp) {
   }
   return first;
 }
+
 
 module.exports = {
   lowerBound: lowerBound,
