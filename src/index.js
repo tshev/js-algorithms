@@ -59,12 +59,14 @@ function lowerBoundMinified(a, val) {
 
 function stablePartition(a, first, last, p) {
   const n = last - first;
+  if (n > 1) {
+      const middle = first + parseInt(n / 2);
+      const p1 = stablePartition(a, first, middle, p);
+      const p2 = stablePartition(a, middle, last, p);
+      return rotate(a, p1, middle, p2);
+  }
   if (n === 0) return first;
-  if (n === 1) return first + p(a[first]);
-  const middle = first + parseInt(n / 2);
-  const p1 = stablePartition(a, first, middle, p);
-  const p2 = stablePartition(a, middle, last, p);
-  return rotate(a, p1, middle, p2);
+  return first + p(a[first]);
 }
 
 function lowerBound(a, first, last, val, cmp) {
